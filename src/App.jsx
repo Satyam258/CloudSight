@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "./components/sections/Navbar";  // Import Navbar here
 import Hero from "./components/sections/Hero";
 import StatsBar from "./components/sections/StatsBar";
-import Features from "./components/sections/Features";
 import HowItWorks from "./components/sections/HowItWorks";
 import Testimonials from "./components/sections/Testimonials";
 import Footer from "./components/sections/Footer";
 import IntegrationsBar from "./components/sections/IntegrationsBar";
+import VideoSection from "./components/sections/VideoSection";
+import FeaturesSection from "./components/sections/FeaturesSection";
 
 export default function App() {
   return (
@@ -19,8 +20,9 @@ export default function App() {
       <Navbar />
       <Hero />
       <IntegrationsBar />
+      <VideoSection/>
       <StatsBar />
-      <Features />
+      <FeaturesSection/>
       <HowItWorks />
       <Testimonials />
       <Footer />

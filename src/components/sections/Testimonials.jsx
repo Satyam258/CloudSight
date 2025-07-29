@@ -1,47 +1,63 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Card from "../ui/Card";
 
 const testimonials = [
   {
-    id: 1,
     name: "Alice Johnson",
-    role: "Project Manager",
-    quote: "Our team productivity skyrocketed with this dashboard!",
-    avatar: "https://via.placeholder.com/64?text=AJ",
+    role: "CTO, TechCorp",
+    photo: "/assets/testimonials/alice.jpg", // replace with actual path or placeholder
+    quote: "CloudSight transformed our monitoring. We detect issues 10X faster and saved tons on APM costs!",
   },
   {
-    id: 2,
-    name: "Bob Smith",
-    role: "Developer",
-    quote: "The real-time analytics keep me perfectly informed.",
-    avatar: "https://via.placeholder.com/64?text=BS",
+    name: "Mark Spencer",
+    role: "SRE Lead, DevWorks",
+    photo: "/assets/testimonials/mark.jpg",
+    quote: "The real-time insights into microservices helped us drastically reduce downtime.",
+  },
+  {
+    name: "Sophia Lee",
+    role: "Product Manager, AppVantage",
+    photo: "/assets/testimonials/sophia.jpg",
+    quote: "The easy onboarding and intuitive UI make observability accessible for our entire team.",
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6, type: "spring" }
+  })
+};
+
 export default function Testimonials() {
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto bg-white rounded-xl shadow-lg">
-      <h2 className="text-3xl font-bold mb-12 text-center">What Our Users Say</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {testimonials.map(({ id, name, role, quote, avatar }) => (
+    <section className="flex flex-col items-center py-16 px-4 bg-gradient-to-r from-[#232323] via-[#1f1f1f] to-[#171616]" id="testimonials">
+      <h2 className="text-3xl font-bold text-yellow-500 mb-6 text-center">
+        What Our Customers Say
+      </h2>
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+        {testimonials.map((t, i) => (
           <motion.div
-            key={id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            key={t.name}
+            className="bg-[#171616] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            custom={i}
+            whileHover={{ scale: 1.05, boxShadow: "0 5px 20px #ffd564cc" }}
+            transition={{ type: "spring", stiffness: 250, damping: 20 }}
           >
-            <Card className="flex flex-col items-center text-center bg-gray-50">
-              <img
-                src={avatar}
-                alt={`${name} avatar`}
-                className="rounded-full w-16 h-16 mb-4"
-              />
-              <p className="italic mb-4">"{quote}"</p>
-              <p className="font-semibold">{name}</p>
-              <p className="text-sm text-gray-500">{role}</p>
-            </Card>
+            <img
+              src={t.photo}
+              alt={t.name}
+              className="w-20 h-20 rounded-full mb-4 object-cover shadow-md border border-yellow-500"
+            />
+            <p className="text-gray-300 italic mb-4">"{t.quote}"</p>
+            <p className="text-yellow-400 font-semibold">{t.name}</p>
+            <p className="text-gray-500 text-sm">{t.role}</p>
           </motion.div>
         ))}
       </div>

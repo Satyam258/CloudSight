@@ -9,7 +9,7 @@ const Navbar = () => {
           {/* Replace with your SVG or icon */}
           <span className="text-white font-bold text-xl">☁️</span>
         </div>
-        <span className="text-white font-semibold text-lg">KloudMate</span>
+        <span className="text-white font-semibold text-lg">CloudSight</span>
       </div>
       {/* Nav Links */}
       <ul className="hidden md:flex space-x-6 text-gray-200 text-sm">
