@@ -77,4 +77,4 @@ Built by: Satyam Singh
 
 
 🔗 Live Demo
-Coming Soon on Vercel / Netlify
+https://cloud-sight.vercel.app/
